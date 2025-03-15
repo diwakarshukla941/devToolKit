@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Toolkit</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Developer Toolkit</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle">🌙</button>
+            </div>
+        </header>
+
+        <nav class="tools-nav">
+            <button class="tool-btn active" data-tool="formatter">Code Formatter</button>
+            <button class="tool-btn" data-tool="converter">Data Converter</button>
+            <button class="tool-btn" data-tool="generator">Generator</button>
+            <button class="tool-btn" data-tool="encoder">Encoder/Decoder</button>
+            <button class="tool-btn" data-tool="diff">Text Diff</button>
+        </nav>
+
+        <main>
+            <!-- Code Formatter Section -->
+            <section id="formatter" class="tool-section active">
+                <h2>Code Formatter</h2>
+                <div class="controls">
+                    <select id="formatLanguage">
+                        <option value="javascript">JavaScript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="sql">SQL</option>
+                    </select>
+                    <button id="formatBtn">Format Code</button>
+                    <button id="copyFormattedBtn">Copy Formatted</button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+                    <pre><code id="formattedOutput" class="hljs"></code></pre>
+                </div>
+            </section>
+
+            <!-- Data Converter Section -->
+            <section id="converter" class="tool-section">
+                <h2>Data Converter</h2>
+                <div class="controls">
+                    <select id="fromFormat">
+                        <option value="json">JSON</option>
+                        <option value="yaml">YAML</option>
+                        <option value="json5">JSON5</option>
+                    </select>
+                    <span>to</span>
+                    <select id="toFormat">
+                        <option value="yaml">YAML</option>
+                        <option value="json">JSON</option>
+                        <option value="json5">JSON5</option>
+                    </select>
+                    <button id="convertBtn">Convert</button>
+                    <button id="copyConvertedBtn">Copy Result</button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="dataInput" placeholder="Paste your data here..."></textarea>
+                    <pre><code id="convertedOutput" class="hljs"></code></pre>
+                </div>
+            </section>
+
+            <!-- Generator Section -->
+            <section id="generator" class="tool-section">
+                <h2>Generator</h2>
+                <div class="generator-grid">
+                    <div class="generator-item">
+                        <h3>UUID Generator</h3>
+                        <button id="generateUUID">Generate UUID</button>
+                        <input type="text" id="uuidOutput" readonly>
+                    </div>
+                    <div class="generator-item">
+                        <h3>Password Generator</h3>
+                        <div class="password-options">
+                            <label>
+                                <input type="checkbox" id="useUppercase" checked> Uppercase
+                            </label>
+                            <label>
+                                <input type="checkbox" id="useNumbers" checked> Numbers
+                            </label>
+                            <label>
+                                <input type="checkbox" id="useSpecial" checked> Special Characters
+                            </label>
+                            <label>
+                                Length: <input type="number" id="passwordLength" value="12" min="8" max="32">
+                            </label>
+                        </div>
+                        <button id="generatePassword">Generate Password</button>
+                        <input type="text" id="passwordOutput" readonly>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Encoder/Decoder Section -->
+            <section id="encoder" class="tool-section">
+                <h2>Encoder/Decoder</h2>
+                <div class="controls">
+                    <select id="encodingType">
+                        <option value="base64">Base64</option>
+                        <option value="url">URL</option>
+                        <option value="html">HTML Entities</option>
+                        <option value="md5">MD5</option>
+                        <option value="sha256">SHA256</option>
+                    </select>
+                    <button id="encodeBtn">Encode</button>
+                    <button id="decodeBtn">Decode</button>
+                    <button id="copyEncodedBtn">Copy Result</button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="textInput" placeholder="Enter text to encode/decode..."></textarea>
+                    <pre><code id="encodedOutput" class="hljs"></code></pre>
+                </div>
+            </section>
+
+            <!-- Text Diff Section -->
+            <section id="diff" class="tool-section">
+                <h2>Text Diff</h2>
+                <div class="diff-container">
+                    <div class="diff-editor">
+                        <h3>Original Text</h3>
+                        <textarea id="originalText" placeholder="Enter original text..."></textarea>
+                    </div>
+                    <div class="diff-editor">
+                        <h3>Modified Text</h3>
+                        <textarea id="modifiedText" placeholder="Enter modified text..."></textarea>
+                    </div>
+                </div>
+                <button id="compareDiff">Compare</button>
+                <div id="diffOutput"></div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
